@@ -1,17 +1,18 @@
-server:
-  port: 8082
-
 spring:
   application:
-    name: dante-service
+    name: DANTE-SERVICE
   profiles:
     active: dev
+  config:
+    import: configserver:http://localhost:8888
+  zipkin: 
+    base-url: http://localhost:9411/
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
+# eureka:
+#   client:
+#     register-with-eureka: true
+#     fetch-registry: true
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka/
+#   instance:
+#     prefer-ip-address: true
